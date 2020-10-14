@@ -18,13 +18,11 @@
         }
 
         .wapper {
-            /*max-width: 1100px;*/
             margin: 0 auto;
             padding: 0 4% 14px 4%;
         }
 
         .bg-color {
-            /*background-image: url(sky-414199_1920.jpg);*/
             min-height: 100vh;
             background-color: azure;
             min-width: 1100px;
@@ -35,7 +33,7 @@
             background-position: center top;
             background-repeat: no-repeat;
         }
-        /*header*/
+        /*header - 내비게이션*/
         .page-header {
             position: fixed;
             top: 0;
@@ -74,7 +72,7 @@
                 .main-nav a:hover {
                     color: darkseagreen;
                 }
-        /*home부분*/
+        /*첫번째 화면*/
         .home {
             text-align: right;
             margin-top: 90px;
@@ -98,35 +96,40 @@
                 text-transform: uppercase;
                 font-size: 0.8rem;
             }
-        
-        /*about*/
+
+        /*두번째 화면*/
         #about {
             /*background: linear-gradient(azure, lightskyblue 40% 60%, azure 85%);*/
             padding: 0;
         }
+
         #intro {
             height: 30px;
             background: azure;
             padding: 40px 0 0 40px;
         }
+
         #sub {
             padding: 150px 40px 0 0;
         }
+
         .stren {
             overflow: hidden;
             padding: 0 0 40px 10px;
         }
+
         .stren1 {
             padding: 0 0 0 30px;
             width: 150px;
             float: left;
         }
+
         .stren2 {
             width: 85%;
             float: left;
         }
 
-        /*conntact*/
+        /*세번째 화면*/
         #contact {
             padding: 0;
         }
@@ -147,7 +150,6 @@
             float: right;
             width: 60%;
             padding: 200px 0 0 20px;
-
         }
 
             #dis h1 {
@@ -155,6 +157,7 @@
             }
     </style>
     <script>
+        //첫화면 - 한글자씩 보이게 하기
         var msg = "끊임없이 성장하고자 노력하는";
         var index = 0;
 
@@ -165,20 +168,21 @@
             var time = setTimeout(show, 250);
         }
     </script>
+    <script>
+        //내비게이션 사용
+        $(document).ready(function () {
+            $('.main-nav li a').click(function (e) {
+                e.preventDefault(); //a태그이기때문에 버벅거림 없애기
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top - 95 }, 500);//부드럽게 스크롤 이동하는부분 - 53부분은 고정 header이기때문에 추가됨, 고정 header가 아닌 경우 삭제
+            });
+        })
+    </script>
 </head>
 <body onload="show()">
-    <!--첫번째 story-->
+    <!--첫번째 화면 구성-->
     <div class="big-bg bg-color">
-        <!--내비게이션-->
+        <!--맨 위 내비게이션 구성-->
         <header class="page-header wapper">
-            <script>
-                $(document).ready(function () {
-                    $('.main-nav li a').click(function (e) {
-                        e.preventDefault(); //a태그이기때문에 버벅거림 없애기
-                        $('html,body').animate({ scrollTop: $(this.hash).offset().top - 95 }, 500);//부드럽게 스크롤 이동하는부분 - 53부분은 고정 header이기때문에 추가됨, 고정 header가 아닌 경우 삭제
-                    });
-                })
-            </script>
             <h1><a href="introduce.html"><img src="ja.png" alt="지애 홈" class="logo" /></a></h1>
             <nav>
                 <ul class="main-nav">
@@ -188,16 +192,18 @@
                 </ul>
             </nav>
         </header>
-        <!--HOME부분-->
+        <!--첫화면의 메인 부분-->
         <div id="home" class="home wapper">
+            <!--script : 한글자씩 보여주는 문장-->
             <h1 id="letter"> </h1>
             <h2>웹 개발자 이지애입니다.</h2>
         </div>
+        <!--맨 아래 footer 구성-->
         <div id="footer">
             <p>copyright &copy; 2020 이지애. All rights reserved</p>
         </div>
     </div>
-    <!--두번째 story-->
+    <!--두번째 화면 구성-->
     <div id="about" class="wapper bg-color">
         <div id="intro">
             <h2>성장하는 개발자, 이지애</h2>
@@ -231,9 +237,9 @@
                 </p>
             </div>
         </div>
-        
+
     </div>
-    <!--세번째 story-->
+    <!--세번째 화면 구성-->
     <div id="contact" class="wapper bg-color">
         <div id="con">
             <h2>contact</h2>
