@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Introduce</title>
+    <script src="jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <meta name="description" content="소개하기" />
+    <style>
+        /*css 초기화*/
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .wapper {
+            /*max-width: 1100px;*/
+            margin: 0 auto;
+            padding: 0 4% 14px 4%;
+        }
+
+        .bg-color {
+            /*background-image: url(sky-414199_1920.jpg);*/
+            min-height: 100vh;
+            background-color: azure;
+            min-width: 1100px;
+        }
+
+        .big-bg {
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+        /*header*/
+        .page-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        .logo {
+            width: 100px;
+            margin-top: 14px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+        }
+
+        .main-nav {
+            display: flex;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            margin-top: 34px;
+            list-style: none;
+        }
+
+            .main-nav li {
+                margin-left: 24px;
+            }
+
+            .main-nav a {
+                color: darkolivegreen;
+            }
+
+                .main-nav a:hover {
+                    color: darkseagreen;
+                }
+        /*home부분*/
+        .home {
+            text-align: right;
+            margin-top: 90px;
+            padding: 250px 70px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: normal;
+        }
+        /*footer*/
+        #footer {
+            position: fixed;
+            width: 100%;
+            line-height: 100px;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+            #footer p {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+            }
+        
+        /*about*/
+        #about {
+            /*background: linear-gradient(azure, lightskyblue 40% 60%, azure 85%);*/
+            padding: 0;
+        }
+        #intro {
+            height: 30px;
+            background: azure;
+            padding: 40px 0 0 40px;
+        }
+        #sub {
+            padding: 150px 40px 0 0;
+        }
+        .stren {
+            overflow: hidden;
+            padding: 0 0 40px 10px;
+        }
+        .stren1 {
+            padding: 0 0 0 30px;
+            width: 150px;
+            float: left;
+        }
+        .stren2 {
+            width: 85%;
+            float: left;
+        }
+
+        /*conntact*/
+        #contact {
+            padding: 0;
+        }
+
+        #con {
+            float: left;
+            width: 37%;
+            height: 100vh;
+            background: linear-gradient(to bottom, azure,lightskyblue);
+            padding: 230px 0 0 40px;
+        }
+
+            #con h2 {
+                margin-bottom: 10px;
+            }
+
+        #dis {
+            float: right;
+            width: 60%;
+            padding: 200px 0 0 20px;
+
+        }
+
+            #dis h1 {
+                margin-bottom: 30px;
+            }
+    </style>
+    <script>
+        var msg = "끊임없이 성장하고자 노력하는";
+        var index = 0;
+
+        function show() {
+            index++;
+            var letter = document.getElementById("letter");
+            letter.innerText = msg.substr(0, index);
+            var time = setTimeout(show, 250);
+        }
+    </script>
+</head>
+<body onload="show()">
+    <!--첫번째 story-->
+    <div class="big-bg bg-color">
+        <!--내비게이션-->
+        <header class="page-header wapper">
+            <script>
+                $(document).ready(function () {
+                    $('.main-nav li a').click(function (e) {
+                        e.preventDefault(); //a태그이기때문에 버벅거림 없애기
+                        $('html,body').animate({ scrollTop: $(this.hash).offset().top - 95 }, 500);//부드럽게 스크롤 이동하는부분 - 53부분은 고정 header이기때문에 추가됨, 고정 header가 아닌 경우 삭제
+                    });
+                })
+            </script>
+            <h1><a href="introduce.html"><img src="ja.png" alt="지애 홈" class="logo" /></a></h1>
+            <nav>
+                <ul class="main-nav">
+                    <li class="menu-on"><a href="#home">HOME</a></li>
+                    <li class="menu-on"><a href="#about">ABOUT</a></li>
+                    <li class="menu-on"><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--HOME부분-->
+        <div id="home" class="home wapper">
+            <h1 id="letter"> </h1>
+            <h2>웹 개발자 이지애입니다.</h2>
+        </div>
+        <div id="footer">
+            <p>copyright &copy; 2020 이지애. All rights reserved</p>
+        </div>
+    </div>
+    <!--두번째 story-->
+    <div id="about" class="wapper bg-color">
+        <div id="intro">
+            <h2>성장하는 개발자, 이지애</h2>
+            <p>1996. 04. 06</p>
+            <p>2015. 02  진명여자고등학교 졸업</p>
+            <p>2020. 02  한성대학교 IT응용시스템공학과 졸업</p>
+        </div>
+        <div id="sub">
+            <div class="stren">
+                <h2 class="stren1">책임감</h2>
+                <p class="stren2">
+                    개발자에게 있어서 필수조건은 자신이 맡은 업무와 프로젝트에 대한 책임감과 끈기라고 생각합니다.
+                    대학교 재학 중에 제가 맡은 미니 프로젝트를 최선을 다해 마무리를 짓도록 노력하였습니다.
+                    미니 프로젝트를 하다가 모르는 것이 있더라도 탐색을 통해 능력을 키우려 했고, 스스의 노력으로도 어려운 것이 있을 때는 다른 사람에게 물어보아서 끝까지 그 프로젝트를 완성시키고자 노력했습니다.
+                </p>
+            </div>
+            <div class="stren">
+                <h2 class="stren1">협력</h2>
+                <p class="stren2">
+                    한 조직 안에서 일한다면 그 조직의 목표를 알고 목표를 위해서 함께 뛰어야 한다고 생각합니다. 그래서 그 가운데서 협력은 당연히 따라올 수밖에 없는 것으로 생각합니다.
+                    협력에서 중요한 것은 같은 목표와 소통이라고 생각합니다. 대학교 재학 중 팀이 정해지면 우선 어떠한 것을 할지 가장 먼저 정한 다음 그 목표를 향해서 함께 노력하였습니다.
+                    또한, 팀을 구성하다 보면 충돌이 생길 때도 있는데 그러한 때는 최대한 타인의 말에 귀를 기울이고 더 나은 방향을 찾으려고 노력했습니다.
+                </p>
+            </div>
+            <div class="stren">
+                <h2 class="stren1">친화력</h2>
+                <p class="stren2">
+                    식구가 많은 가족에서 어렸을 때부터 자라다 보니 자연스럽게 여러 사람과 함께하는 환경 속에 놓인 적이 많았습니다.
+                    그래서 다른 사람에 비해서 새로운 환경과 사람에게 더 빨리 적응합니다.
+                    또한, 다른 사람에게 친근하게 다가가고 대화를 나누는 것을 좋아합니다.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    <!--세번째 story-->
+    <div id="contact" class="wapper bg-color">
+        <div id="con">
+            <h2>contact</h2>
+            <p>E-mail : wldo0406@naver.com</p>
+            <p>Phone Number : 010-3758-7414</p>
+        </div>
+        <div id="dis">
+            <h1>봐주셔서 감사합니다</h1>
+            <p>사람들이 보기 편하고 많이 찾는 웹을 만드는 개발자가 되겠습니다.</p>
+            <p>또한, 제가 가진 기술로만 승부를 보는 것이 아닌 신기술을 학습하면서 계속해서 성장하는 개발자가 되겠습니다.</p>
+        </div>
+    </div>
+</body>
+</html>
